@@ -1,0 +1,463 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>Binder Tutorial</title>
+  </head>
+  <body class="fade-in">
+    <main>
+      <header>
+        <h1>B I N D E R &nbsp;&nbsp;&nbsp;&nbsp; T U T O R I A L</h1>
+      </header>
+      <section>
+        <nav>
+          <a href="index.html">Quick Start</a>,
+          <a href="tutorial-1.html">Tutorial Start</a>,
+          <br>
+          <a href="#components">Components</a>, 
+          <a href="#team-names">Team names</a>
+          <a target="_blank" href="tutorial-kickoff-1.html">(site)</a>,
+
+          <a href="#score-clock">Score Clock</a>
+          <a target="_blank" href="tutorial-kickoff-2.html">(site)</a>,
+          
+          <a href="#formation">Formation</a>
+          <a target="_blank" href="tutorial-kickoff-3.html">(site)</a>,
+          
+          <a href="#event-list">Event List</a>
+          <a target="_blank" href="tutorial-kickoff-4.html">(site)</a>,
+          <br>
+          <a href="tutorial-setup.html">Setup tutorial, </a>
+          <a href="tutorial-whistle.html">Whistle tutorial.</a>
+        </nav>
+        <article id="components">
+          <h2>0. Components</h2>
+          <div class="repeatgrid">
+            <div class="left-text">
+              The kickoff screen consists of four components: <b>team-names</b>, <b>score clock</b>, <b>formation</b>
+              and <b>events-list<b>. 
+              </div>
+          </div>
+        </article>
+        <br />
+        <br />
+
+        <article id="team-names">
+          <h2>1. Team names</h2>
+          <div class="repeatgrid">
+            <div class="left-text">
+              Place component does not need to be big. In fact, there's no point making it a web component at all, just a button.
+              <br />
+              <br />
+              <a target="_blank" href="tutorial-kickoff-1.html">Go to running site</a>
+            </div>
+            <div class="sketch">
+              <h3>Code  - tutorial-kickoff-1.js</h3>
+              <pre class="drawing">
+
+  import "./tutorial-setup-4.js";
+  import "./tutorial-kickoff-1-teamplay.js";
+              </pre>
+            </div>
+
+            <div class="sketch">
+              <h3>Code  - tutorial-kickoff-1-teamplay.js</h3>
+              <pre class="drawing">
+
+  class TeamPlay extends HTMLElement {
+    constructor() {
+      super();
+    }
+  
+    connectedCallback() {
+      this.innerHTML = `&lt;div class="center-grid" id="namesDisplayMode">
+                          &lt;button click="scored" class="teamName" 
+                             id="teamNameLabel" name="teamName" >&lt;/button>
+
+                          &lt;div class="vrs">- VRS -&lt;/div>
+                          
+                          &lt;button click="opponentScored" class="teamName" 
+                             id="opponentLabel" name="opponentName" >&lt;/button>
+                        &lt;/div>`;
+    }
+  }
+  customElements.define("team-play", TeamPlay);
+              </pre>
+            </div>
+
+            <div class="sketch">
+              <h3 id="markup">Mark up - tutorial-kickoff-1.html</h3>
+              <pre>
+
+    &lt;html>
+    &lt;head>
+      &lt;link rel="stylesheet" type="text/css" href="tutorial-setup-4.css" />
+      &lt;title>Footswell&lt;/title>
+    &lt;/head>
+    &lt;body class="fade-in">
+        &lt;main>
+          &lt;header>
+            &lt;h1>F O O T S W E L L&lt;/h1>
+          &lt;/header>
+          &lt;section id="size">
+    
+            &lt;team-play >&lt;/team-play>
+      
+            &lt;score-clock>&lt;/score-clock>
+
+            &lt;label class="hide goal" id="scored" name="scored">&lt;/label>
+
+            &lt;nav class="butBar">
+                  &lt;button class="whistle-button" 
+                     click="whistle" id="WhistleBut">Whistle blown
+                  &lt;/button> 
+            &lt;/nav>
+      
+            &lt;players-formation>&lt;/players-formation>
+      
+            &lt;events-list>/&lt;events-list>
+      
+          &lt;/section>
+        &lt;/main>
+      &lt;/body>
+
+      &lt;script type="module" src="tutorial-kickoff-1.js">&lt;/script>
+
+      &lt;script type="module">
+        // Taken out go from the tutorial-kickoff-1.js script as it's 
+        // going to be used in the next stage
+        import { go } from "./dist/binder.js";
+        go();
+      &lt;/script>
+
+    &lt;/html>
+              </pre>
+            </div>
+            <div class="sketch">
+              <h3>Css - see <a href="./tutorial-setup.html#tutorial-setup-4.css">tutorial-setup-4.css</a></h3>
+            </div>
+
+          </div>
+          
+        </article>
+        <br />
+        <br />
+
+        <article id="score-clock">
+          <h2>2. Score Clock</h2>
+          <div class="repeatgrid">
+            <div class="left-text">
+              Implement a clock ticking, scoring buttons for the team and the opponent and scoring message 
+              <br />
+              <br />
+              <a target="_blank" href="tutorial-kickoff-2.html">Go to running site</a>
+              <h3>Code - tutorial-kickoff-2.js</h3>
+<pre class="drawing">
+
+  import {
+    getByName,
+    setByName,
+    addClickFunction,
+    getValue,
+  } from "./dist/binder.js";
+  import { addRow } from "./dist/plugins/tablePlugin.js";
+  
+  import "./tutorial-setup-4.js";
+  import "./tutorial-kickoff-1-teamplay.js";
+  import "./tutorial-kickoff-2-scoreclock.js";
+  
+  const getZeroValue = (name) => {
+    const stored = getByName(name);
+    return stored ? parseInt(stored) : 0;
+  };
+  
+  export const currentScore = () => {
+    const name = getByName("teamName");
+    const opponent = getByName("opponentName");
+    const oppScore = getByName("opponentScore");
+    const score = getByName("score");
+    return name + " " + score + " vrs " + opponent + " " + oppScore;
+  };
+  
+  addClickFunction("scored", (event) => {
+    const scorer = getValue(event.target);
+    const current = getZeroValue("score");
+    const score = current + 1;
+    setByName("score", score);
+    console.log(scorer + " scored! Now have " + score + " goals in this game");
+    scored("!!! " + scorer + " scored !!!");
+    publish(scorer + " scored! " + currentScore());
+  });
+  
+  const scored = (text) => {
+    setByName("scored", text);
+    document.getElementById("scored").classList.remove("hide");
+    setTimeout(
+      () => document.getElementById("scored").classList.add("hide"),
+      3000
+    );
+  };
+  
+  addClickFunction("opponentScored", () => {
+    const teamName = getByName("teamName");
+    const opponentName = getByName("opponentName");
+    const current = getZeroValue("opponentScore");
+    const score = current + 1;
+    setByName("opponentScore", score);
+    console.log(
+      opponentName + " have scored. Now have " + score + " goals in this game"
+    );
+    publish(teamName + " have conceded a goal. " + currentScore());
+  });
+  
+  const zeroPad = (n) => (n > 9 ? n : "0" + n);
+  
+  let clock;
+  
+  export const startClock = () => {
+    clock = setInterval(() => {
+      const seconds = getZeroValue("secs");
+      const mins = getZeroValue("mins");
+      const nextSec = seconds + 1;
+      const updateMin = nextSec > 59 ? mins + 1 : mins;
+      const updateSec = nextSec > 59 ? 0 : nextSec;
+      setByName("secs", zeroPad(updateSec));
+      setByName("mins", zeroPad(updateMin));
+    }, 1000);
+  };
+  
+  addClickFunction("whistle", () => {
+    if (clock) {
+      clearInterval(clock);
+    }
+    publish(" Whistle blown");
+    document.location.href = "./tutorial-whistle-1.html";
+  });
+  
+  export const publish = (event) => {
+    const date = new Date();
+    const hh = zeroPad(date.getHours());
+    const mm = zeroPad(date.getMinutes());
+    const ss = zeroPad(date.getSeconds());
+    const ent = {
+      time: hh + ":" + mm + ":" + ss,
+      event,
+    };
+    addRow("events", ent);
+  };
+    
+</pre>
+            </div>
+            <div id="extracss" class="sketch">
+              <h3><b>Mark up</b> see <a href="#markup">above</a> (change the script ref and startClock call) and for <b>css</b> see <a href="./tutorial-setup.html#tutorial-setup-4.css">tutorial-setup-4.css</a></h3>
+          </div>
+          <div class="sketch">
+            <h3 >Extra CSS</h3>
+ <pre class="drawing">
+
+  .clock-grid {
+    display: grid;
+    grid-template-columns: 4fr 0.5fr 4fr;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .clock {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    font-size: 30px;
+    max-width: 10%;
+  } 
+  
+  .player-but {
+    margin: 5px;
+    min-height: 100px;
+    font-size: 32px;
+    border-radius: 25px;
+    width: 100%;
+  }
+  
+  .play-grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+    grid-gap: 5px;
+    margin: 10px;
+  }
+ </pre>
+        </div>
+        
+        </article>
+        <br />
+        <br />
+
+        <article id="formation">
+          <h2>3. Formation</h2>
+          <div class="repeatgrid">
+            <div class="left-text">
+              Name edit component takes one prop mode for edit or display
+              <br />
+              <br />
+              <a target="_blank" href="tutorial-kickoff-3.html">Go to running site</a>
+              <h3>Code - tutorial-kickoff-3.js</h3>
+<pre class="drawing">
+
+  import "./tutorial-kickoff-2.js";
+  import "./tutorial-kickoff-3-formation.js";
+
+</pre>
+<h3>Code - tutorial-kickoff-3-formation.js</h3>
+<pre class="drawing">
+
+  import "./tutorial-kickoff-3-posrow.js";
+  import "./tutorial-kickoff-3-benchrow.js";
+  
+  class Formation extends HTMLElement {
+    constructor() {
+      super();
+    }
+  
+    connectedCallback() {
+      this.innerHTML = `&lt;div class="format-grid" id="formation">
+                          &lt;player-row start=1  >&lt;/player-row>
+                          &lt;player-row start=6  >&lt;/player-row>
+                          &lt;player-row start=11 >&lt;/player-row>
+                          &lt;player-row start=16 >&lt;/player-row>
+                          &lt;span class="play-grid">
+                            &lt;div class="player">&lt;/div>
+                            &lt;div class="player">&lt;/div>
+                            &lt;button click="scored" class="player-but" 
+                            name="pos-goal" id="player-goal-button">&lt;/button>
+                            &lt;div>&lt;/div>
+                            &lt;div>&lt;/div>
+                          &lt;/span>
+                          &lt;player-bench>&lt;/player-bench>
+                        &lt;/div>`;
+    }
+  }
+  customElements.define("players-formation", Formation);
+  
+</pre>
+<h3>Code - tutorial-kickoff-3-posrow.js</h3>
+<pre class="drawing">
+
+  import { getByName } from "./dist/binder.js";
+
+  class PlayerRow extends HTMLElement {
+    start = -1;
+    constructor() {
+      super();
+      this.start = parseInt(this.getAttribute("start"));
+    }
+
+    connectedCallback() {
+      for (let x = 0; x &lt; 6; x++) {
+        const id = this.start + x;
+        const html = `&lt;div class="player">
+                        &lt;button if="pos-${id}" class="hide player-but" 
+                          click="scored" name="pos-${id}" 
+                          id="player-button-${id}">&lt;/button>
+                      &lt;/div>`;
+        this.innerHTML = this.innerHTML + html;
+      }
+      this.innerHTML = `&lt;span class="play-grid">` + this.innerHTML + `&lt;/span>`;
+    }
+  }
+
+  customElements.define("player-row", PlayerRow);
+
+  
+</pre>
+
+</pre>
+<h3>Code - tutorial-kickoff-3-benchrow.js</h3>
+<pre class="drawing">
+
+  import { getByName } from "./dist/binder.js";
+
+  class PlayerBench extends HTMLElement {
+    start = -1;
+    constructor() {
+      super();
+      this.start = parseInt(this.getAttribute("start"));
+    }
+  
+    connectedCallback() {
+      for (let id = 1; id &lt; 6; id++) {
+        const html = `&lt;div class="player">
+                        &lt;button if="pos-bench-${id}" 
+                          name="pos-bench-${id}" id="bench-button-${id}"
+                          class="player-but" click="scored" >&lt;/button>
+                      &lt;/div>`;
+        this.innerHTML = this.innerHTML + html;
+      }
+      this.innerHTML = `&lt;span class="row-grid">` + this.innerHTML + `&lt;/span>`;
+    }
+  }
+  
+  customElements.define("player-bench", PlayerBench);
+    
+</pre>
+
+
+
+</div>
+            <div class="sketch">
+              <h3><b>Mark up</b> see <a href="#markup">above</a> (change the script ref and startClock call) and for <b>css</b> see <a href="#extracss">Extra CSS above</a></h3>
+          </div>
+          
+        </article>
+        <br />
+        <br />
+
+        <article id="event-list">
+          <h2>4. Event List</h2>
+          <div class="repeatgrid">
+            <div class="left-text">
+              Name edit component takes one prop mode for edit or display
+              <br />
+              <br />
+              <a target="_blank" href="tutorial-kickoff-4.html">Go to running site</a>
+              <h3>Code - tutorial-kickoff-4.js</h3>
+<pre class="drawing">
+
+  import "./tutorial-kickoff-2.js";
+  import "./tutorial-kickoff-3-formation.js";
+  import {
+    addClickFunction,
+    getValue,
+    getByName,
+    setByName,
+  } from "./dist/binder.js";
+  
+  // Add an extra listener to change score based on undo....
+  addClickFunction("undo", (e) => {
+    const row = e.target.getAttribute("row");
+    const event = document.getElementById("events-event-" + row);
+    const eventText = getValue(event);
+    const scored = eventText.indexOf("scored") > -1;
+    const conceded = eventText.indexOf("conceded") > -1;
+    if (!scored && !conceded) {
+      return; // no score to change
+    }
+    const name = conceded ? "opponentScore" : "score";
+    const crossout = event.classList.contains("crossout");
+    const adujster = crossout ? -1 : 1;
+    const score = getByName(name);
+    const newScore = parseInt(score) + adujster;
+    setByName(name, newScore);
+  });  
+
+</pre>
+            </div>
+            <div class="sketch">
+              <h3><b>Mark up</b> see <a href="#markup">above</a> (change the script ref and startClock call) and for <b>css</b> see <a href="#extracss">Extra CSS above</a></h3>
+          </div>
+          
+        </article>
+        <br />
+        <br />
+
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,346 @@
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="index.css" />
+      <title>Binder Examples</title>
+    </head>
+    <body class="fade-in">
+      <main>
+        <header><h1>B I N D E R</h1></header>
+        <section>
+
+          <nav>
+              <a href="#install">Install</a>, 
+              <a href="#simple">Simple Start</a>,
+              <a href="#ifPlugin">If plugin</a>,
+              <a href="#hideshowPlugin">Hide/show plugin</a>,
+              <a href="#swapDataPlugin">Swap data plugin</a>,
+              <a href="#swapElementPlugin">Swap element plugin</a>,
+              <a href="#click">Click</a>,
+              <a href="#tablePlugin">Table plugin</a> and a footswell
+              <a href="tutorial-1.html">tutorial</a>.
+              <a href="tutorial-setup-4.html">Running app</a>.
+          </nav>
+          <div>
+            <article id="install">
+                <h2>0. Install</h2>
+                <div class="copygrid">
+                  <div id="npm" class="install">   npm i git+https://github.com/bangbangsoftware/binder.git -D</div>
+                  <div><button id="copy-butt" title="Copy to clipboatd" class="copy" click="copy">Copy</button></div>
+              </div>
+              <div class="message" id="message"></div>
+            </article>
+
+
+            <article id="simple">
+              <h2>1. Simple start</h2>
+              <div class="repeatgrid">
+                <div>
+                    <code> 
+<pre class="code">
+      &lt;input name='sport' autofocus>&lt;/input>
+
+      Your sport is &lt;b name='sport'>&lt;/b>
+
+      &lt;script type='module' src='binder/dist/go.js'>&lt;/script>
+</pre>
+                    </code>
+                </div>
+                <div class="mid-text">
+                  Your favourite sport &emsp;
+                  <input name='sport' autofocus></input>
+                  <br>
+                  <br>
+                  <span>
+                      Your sport is <b name='sport' ></b>
+                      <button  click="clearSport">Clear sport</button>                
+                  </span>
+                  <br>
+                  <br>
+                </div>
+              </div>
+              <p class="right-text">Did you notice, pressing <a href=".">refresh</a> and the state stays, even works off line</p>
+            </article>
+ 
+
+
+          <article id="ifPlugin">
+            <h2>2. Toggle plugin</h2>
+  
+            <div class="repeatgrid">
+              <div>
+                  <code> 
+<pre class="code">
+    &lt;button toggle="Hello,Goodbye" name="bookend" id="bookend">Hello&lt;/button>
+          
+    &lt;script type='module' src='binder/dist/go.js'>&lt;/script>
+</pre>
+</code>
+
+              </div>
+              <div class="mid-text" >
+                <hi-bye b-id="hi" b-name="hibye"></hi-bye>
+              </div>
+            </div>
+          </article>
+
+
+
+          <article id="ifPlugin">
+            <h2>3. Only if - if plugin</h2>
+  
+            <div class="repeatgrid">
+              <div>
+                  <code> 
+<pre class="code">
+    &lt;input name='weather' placeholder="What's the weather like?">&lt;/input>
+
+    &lt;label if="weather" >
+          Weather has been entered 
+          &lt;b name="weather">&lt;/b>
+    &lt;/label>
+          
+    &lt;script type='module' src='binder/dist/go.js'>&lt;/script>
+</pre>
+</code>
+
+              </div>
+              <div class="mid-text" >
+                  <span>
+                    <input name='weather' placeholder="What's the weather like?" autofocus></input>
+                  </span>
+                  <br>
+                  <br>
+                  <label  if="weather" >Weather has been entered
+                    <b name="weather"></b>
+                  </label>
+                  <br>
+                  <br>
+
+              </div>
+            </div>
+          </article>
+
+
+          <article id="hideshowPlugin">
+            <h2>4. Hide / Show Plugin</h2>
+  
+            <div class="repeatgrid">
+                <div>
+                  <code> 
+<pre class="code">
+    &lt;button class="swap" showhide-trigger="peekaboo"> Hide / show &lt;/button>
+
+    &lt;div name="hider" showhide="peekaboo">PEEK-A-BOO&lt;/div>
+              
+    &lt;script type='module' src='binder/dist/go.js'>&lt;/script>
+</pre>
+                  </code>
+
+                </div>
+                <div class="peekgrid padbot">
+                  <button class="full" showhide-trigger="peekaboo">Hide / show</button>
+                  <div name="hider" class="hide peek" showhide="peekaboo">PEEK-A-BOO</div>
+              </div>
+            </div>
+          </article>
+
+
+          <article id="swapDataPlugin">
+            <h2>5. Swap data Plugin</h2>
+  
+            <div class="repeatgrid">
+                <div>
+                  <code> 
+<pre class="code">
+    &lt;button class="swap" name='weather' swap-data="sporther"></button>
+    &lt;button class="swap" name='sport'   swap-data="sporther"></button>
+    &lt;button class="swap" name='third'   swap-data="sporther"></button>
+
+    &lt;script type='module' src='binder/dist/go.js'>&lt;/script>
+</pre>
+                  </code>
+
+                </div>
+                <div class="swapgrid padbot mid-text">
+                  <div>Weather </div><button class="swap" name='weather' swap-data="sporther"></button>
+                  <div>Sport   </div><button class="swap" name='sport' swap-data="sporther"></button>
+                  <div>Blanker </div><button class="swap" name='third' swap-data="sporther"></button>
+                </div>
+              </div>
+          </article>
+
+
+          <article id="swapElementPlugin">
+            <h2>6. Swap element Plugin</h2>
+  
+            <div class="repeatgrid">
+                <div>
+                  <code> 
+<pre class="code">
+  &lt;button class="swap" name='weather' swap-element="sporther"></button>
+  &lt;button class="swap" name='sport'   swap-element="sporther"></button>
+  &lt;button class="swap" name='third'   swap-element="sporther"></button>
+  &lt;button class="swap" name='four'    swap-element="sporther"></button>
+
+  &lt;script type='module' src='binder/dist/go.js'>&lt;/script>
+</pre>
+                  </code>
+
+                </div>
+                <div class="padbot">
+                  <div>
+                     <button class="full" name='four' swap-element="sporther"></button>
+                  </div>
+                  <div>
+                    <button class="full" name='weather' swap-element="sporther"></button>
+                  </div>
+                  <div>
+                    <button class="full" name='sport' swap-element="sporther"></button>
+                  </div>
+                  <div>
+                    <button class="full" name='third' swap-element="sporther"></button>
+                  </div>
+              </div>
+            </div>
+          </article>
+
+
+          <article id="click">
+            <h2>7. Click away</h2>
+  
+            <div class="repeatgrid">
+                <div>
+                  <code> 
+<pre class="code">
+  &lt;body>
+      I can dance for &lt;b name='danceFor' >&lt;/b> hours
+
+      &lt;button click='addHour' >Longer&lt;/button>
+      &lt;button click='takeHour' >Less&lt;/button>
+  &lt;/body>
+  
+  &lt;script type='module'>
+      import { go, tools, addClickFunction } from "./dist/binder.js";
+      go();
+
+      tools.setByName("danceFor", 0);
+
+      const changeHours = amount => {
+        const hours = parseInt(tools.getByName("danceFor"));
+        tools.setByName("danceFor", hours+amount);
+      }
+      addClickFunction("addHour",(tools, ev) => changeHours(1));
+      addClickFunction("takeHour",(tools, ev) => changeHours(-1));
+  &lt;/script>
+</pre>
+                  </code>
+
+                </div>
+                <div class="big-text padbot">
+                    I can dance for <b name='danceFor' ></b> hours
+                      <button click='takeHour'>Less</button>
+                      <button click='addHour'>Longer</button>
+                </div>
+              </div>
+          </article>
+
+
+          <article id="tablePlugin">
+            <h2>8. Bring it to the table - table plugin</h2>
+  
+            <div class="repeatgrid">
+                <div>
+                  <code> 
+<pre class="code">
+
+&lt;div class="data" >
+  &lt;div>&lt;strong click="sorter"> No.                 &lt;/strong>&lt;/div>
+  &lt;div>&lt;strong click="sorter"> Name                &lt;/strong>&lt;/div>
+  &lt;div>&lt;strong click="sorter"> County              &lt;/strong>&lt;/div>
+  &lt;div>&lt;strong click="sorter"> Census 2001-04-29   &lt;/strong>&lt;/div>
+  &lt;div>&lt;strong click="sorter"> Census 2011-03-27   &lt;/strong>&lt;/div>
+  &lt;div>&lt;strong click="sorter"> Estimate 2018-06-30 &lt;/strong>&lt;/div>
+&lt;/div>
+&lt;div table="pops">
+  &lt;div place="$index">             &lt;/div>
+  &lt;div place="Name">               &lt;/div>
+  &lt;div place="County">             &lt;/div>
+  &lt;div place="Census 2001-04-29">  &lt;/div>
+  &lt;div place="Census 2011-03-27">  &lt;/div>
+  &lt;div place="Estimate 2018-06-30">&lt;/div>
+&lt;/div>
+
+&lt;script type='module'>
+
+    import { go, tools } from "./dist/binder.js";
+    import { tablePlugin, addSetup } from './dist/plugins/tablePlugin.js';
+    import data from "./data.js";
+
+    go(tablePlugin);
+
+    const setupData = data().map((list) => ({
+      "Name":                list[0],
+      "County":              list[1],
+      "Census 2001-04-29":   list[2],
+      "Census 2011-03-27":   list[3],
+      "Estimate 2018-06-30": list[4],
+    }));
+    addSetup("pops", setupData);
+&lt;/script>
+
+</pre>
+                  </code>
+                </div>
+                <div class="repeat">
+                    <div class="data" >
+                      <div ><strong click="sorter">No.&nbsp;&nbsp;&nbsp;</strong> </div>
+                      <div ><strong click="sorter">Name</strong></div>
+                      <div ><strong click="sorter">County</strong></div>
+                      <div  class="text-end"><strong click="sorter">Census 2001-04-29</strong></div>
+                      <div  class="text-end"><strong click="sorter">Census 2011-03-27</strong></div>
+                      <div  class="text-end"><strong click="sorter">Estimate 2018-06-30</strong></div>
+                    </div>
+                    <div class="table-content">
+                        <div class="data" table="pops">
+                          <div click="take" place="$index"></div>
+                          <div place="Name"></div>
+                          <div click="county" place="County"></div>
+                          <div class="text-end" place="Census 2001-04-29"></div>
+                          <div class="text-end" place="Census 2011-03-27"></div>
+                          <div class="text-end" place="Estimate 2018-06-30"></div>
+                        </div>
+                    </div>
+                    <div class="right">
+                      <br>
+                      <br>
+                      <button class="fadey" click='addTown'>Add Town</button>
+                      <button class="fadey" click='takeTop'>Take top</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <p class="right-text">That was 3666+ items rendered instantly! Also stored in local storage</p>
+            <p class="right-text">Follow the  <a href="tutorial-1.html">tutorial</a> and create a kids football score sheet</p>
+          </article>
+        </div>
+        <nav>
+          <br>
+          <a href="#install">Install</a>, 
+          <a href="#simple">Simple Start</a>,
+          <a href="#ifPlugin">If plugin</a>,
+          <a href="#hideshowPlugin">Hide/show plugin</a>,
+          <a href="#swapDataPlugin">Swap data plugin</a>,
+          <a href="#swapElementPlugin">Swap element plugin</a>,
+          <a href="#click">Click</a>,
+          <a href="#tablePlugin">Table plugin</a>
+        </nav>
+  
+      </section>
+
+      </main>
+      <footer>&copy; Alien Poop 2020 &nbsp;&nbsp;</footer>
+    </body>
+    <script src="./hibye.js"></script>
+    <script type="module" src="./main.js"></script>
+    </html>
+  

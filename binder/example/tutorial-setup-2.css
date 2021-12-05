@@ -1,0 +1,43 @@
+h1 {
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+
+button {
+  margin: 5px;
+}
+
+body {
+  background-color: #78c278;
+}
+
+input {
+  background-color: #ffeb3b;
+}
+
+.edit {
+  background-color: green;
+  color: white;
+}
+
+.center-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  font-size: 30px;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.place {
+  width: 50%;
+  height: 42px;
+  margin-left: 25%;
+  font-size: 30px;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}

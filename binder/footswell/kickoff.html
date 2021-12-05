@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <link rel="stylesheet" type="text/css" href="kickoff.css" />
+
+  <title>Footswell</title>
+  <div showhide="connected" class="hide watercontrol" id="watercourse">
+    <input type="text" id="u" name="u" placeholder="Username">
+    <input type="password" id="p" name="password" placeholder="password">
+    <button click="login" class="login">Log in</button>
+  </div>
+</head>
+
+<body class="fade-in">
+  <main>
+    <header>
+      <h1>F O O T S W E L L</h1>
+    </header>
+    <section id="size">
+
+      <team-play mode="play"></team-play>
+
+      <score-clock></score-clock>
+
+      <label class="hide goal" id="scored" name="scored"></label>
+
+      <nav class="butBar">
+        <button class="whistle-button" click="whistle" id="WhistleBut">Whistle blown</button>
+      </nav>
+
+      <players-formation></players-formation>
+
+      <events-list>/<events-list>
+
+    </section>
+  </main>
+</body>
+<script type="module" src="kickoff.js"></script>
+<script type="module">
+  // Taken out go from the clock.js script as it's 
+  // going to be used in the next stage
+  import { go } from "./dist/binder.js";
+  go();
+
+  // To start the clock is implicit, so the rest of the js can be used
+  // without starting the clock.
+  import { startClock } from "./clock.js";
+  startClock();
+</script>
+
+</html>

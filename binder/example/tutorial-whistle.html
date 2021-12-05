@@ -1,0 +1,180 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>Binder Tutorial</title>
+  </head>
+  <body class="fade-in">
+    <main>
+      <header>
+        <h1>B I N D E R &nbsp;&nbsp;&nbsp;&nbsp; T U T O R I A L</h1>
+      </header>
+      <section>
+        <nav>
+          <a href="index.html">Quick Start</a>,
+          <a href="tutorial-1.html">Tutorial Start</a>,
+          <br />
+          <a href="#components">Components</a>,
+          <a href="#place-toggle">Final Whistle</a>
+          <a target="_blank" href="tutorial-whistle-1.html">(site)</a>.
+          <br />
+          <a href="tutorial-setup.html">Setup tutorial, </a>
+          <a href="tutorial-kickoff.html">Kickoff tutorial. </a>
+        </nav>
+        <article id="components">
+          <h2>0. Components</h2>
+          <div class="repeatgrid">
+            <div class="left-text">
+              The whistle screen is more or less a copy of setup screen.
+              Sometimes, not being DRY avoids spaghetti. The main difference is
+              the final whistle.
+            </div>
+          </div>
+        </article>
+        <br />
+        <br />
+
+        <article id="place-toggle">
+          <h2>1. Final whistle</h2>
+          <div class="repeatgrid">
+            <div class="left-text">
+              Main two things here are a little trick to download a csv file as
+              part of the final whistle and a reset the clock button
+              <br />
+              <br />
+              <a target="_blank" href="tutorial-whistle-1.html"
+                >Go to running site</a
+              >
+            </div>
+            <div class="sketch">
+              <h3>Code - tutorial-whistle-1.js</h3>
+              <pre class="drawing">
+
+    import "./tutorial-kickoff-4.js";
+    import { publish, currentScore } from "./tutorial-kickoff-2.js";
+    import { addClickFunction, setByName, getByName } from "./dist/binder.js";
+    import { rowsWithoutClass } from "./dist/plugins/tablePlugin.js";
+    
+    addClickFunction("reset", () => {
+      setByName("mins", "00");
+      setByName("secs", "00");
+    });
+    
+    addClickFunction("finalWhistle", () => {
+      const score = currentScore();
+      // publish
+      publish("The final whistle has blown!, " + score);
+      // csv
+      download();
+    });
+    
+    addClickFunction("newGame", () => {
+      window.location = "./tutorial-setup-4.html";
+    });
+    
+    const download = () => {
+      const date = new Date();
+    
+      let data = "";
+      const rows = rowsWithoutClass("events", "crossout");
+      rows.forEach((evt) => {
+        data = data + evt.time + ", " + evt.details + "\n";
+      });
+      const filename = date + ".csv";
+      const type = "csv";
+      const file = new Blob([data], { type });
+      if (window.navigator.msSaveOrOpenBlob) {
+        // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+        return;
+      }
+      // Others
+      const a = document.createElement("a");
+    
+      const url = URL.createObjectURL(file);
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, 0);
+    };
+
+    </pre
+              >
+            </div>
+            <div class="sketch">
+              <h3>Mark up</h3>
+              <pre>
+
+    &lt;html>
+    &lt;head>
+      &lt;link rel="stylesheet" type="text/css" href="tutorial-setup-4.css" />
+      &lt;link rel="stylesheet" type="text/css" href="tutorial-kickoff-2.css" />
+      &lt;title>Footswell&lt;/title>
+    &lt;/head>
+    &lt;body class="fade-in">
+      &lt;main>
+        &lt;header>
+          &lt;h1>F O O T S W E L L&lt;/h1>
+        &lt;/header>
+        &lt;section>
+          &lt;article id="components">
+  
+              &lt;button class="place action" toggle="HOME,AWAY" 
+                 id="place-toggle" name="place">HOME&lt;/button>   
+  
+              &lt;team-names id="teamNames" mode="play">&lt;/team-names>
+  
+              &lt;button class="place action" click="finalWhistle" 
+                  id="final-whistle">Final Whistle&lt;/button>   
+  
+              &lt;score-clock>&lt;/score-clock>
+  
+              &lt;nav class="nav4">
+                  &lt;button class="action" click="toggleEdit">Edit&lt;/button> 
+                  &lt;button class="action" click="reset">Reset time&lt;/button> 
+                  &lt;button click="publish" class="action">Publish&lt;/button> 
+                  &lt;button click="kickoff" class="action">Kick Off&lt;/button>   
+              &lt;/nav>
+  
+              &lt;formation-edit mode="display">&lt;/formation-edit>
+  
+              &lt;events-list>&lt;/events-list>
+  
+              &lt;button class="place action" 
+                  click="newGame" id="new-game">New Game&lt;/button>   
+  
+          &lt;/section>
+      &lt;/main>
+    &lt;/body>
+    &lt;script type="module" src="./tutorial-whistle-1.js">&lt;/script>
+    &lt;script type="module">
+        import { go } from "./dist/binder.js";
+        go();
+    &lt;/script>
+  &lt;/html>
+
+  </pre
+              >
+            </div>
+            <div class="sketch">
+              <h3>Css</h3>
+              <pre class="drawing">
+
+  .nav4 {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+ </pre
+              >
+            </div>
+          </div>
+        </article>
+        <br />
+        <br />
+      </section>
+    </main>
+  </body>
+</html>

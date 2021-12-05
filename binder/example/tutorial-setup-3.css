@@ -1,0 +1,86 @@
+h1 {
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+
+button {
+  margin: 5px;
+  min-height: 100px;
+  max-width: 90%;
+  font-size: 32px;
+}
+
+body {
+  background-color: #78c278;
+}
+
+input {
+  background-color: #f1e78c;
+  min-height: 100px;
+  font-size: 42px;
+  min-width: 10px;
+}
+
+.action {
+  min-height: 12px;
+  font-size: 32px;
+}
+
+.vrs {
+  padding-top: 50px;
+}
+
+.teamName {
+  padding-top: 27px;
+  padding-bottom: 27px;
+}
+
+.edit {
+  background-color: green;
+  color: white;
+}
+
+.swap-data-selected {
+  background-color: green;
+}
+
+.format-grid {
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+}
+
+.goalie {
+  width: 50%;
+  height: 42px;
+  margin-left: 25%;
+  font-size: 30px;
+}
+
+.row-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 5px;
+  margin: 10px;
+}
+
+.center-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  font-size: 30px;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.place {
+  width: 50%;
+  height: 42px;
+  margin-left: 25%;
+  font-size: 30px;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}

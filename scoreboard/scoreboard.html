@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="scoreboard.css" />
+    <title>Scoreboard</title>
+</head>
+
+<body>
+    </br>
+    </br>
+    </br>
+    <div class="title">Scoreboard</div>
+    <div class="state" id="state"></div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <div class="chalk">
+        <div class="board">
+            <div id="state"></div>
+            <span class="time">
+                <div class="small" id="mins">Waiting</div>
+                <span></span>
+                <div class="small" id="secs">...</div>
+            </span>
+            <div></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        <div class="board">
+            <div id="teamName" class="teamName" name="team"></div>
+            <span>
+            </span>
+            <div id="opponentName" class="opponentName"></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        <div class="board">
+            <div id="score" class="score"></div>
+            <div class="vrs"></div>
+            <div id="opponentScore" class="score"></div>
+        </div>
+        </br>
+        </br>
+        </br>
+        </br>
+        <div id="alertMessage" class="alert"></div>
+        </br>
+        </br>
+        </br>
+        </br>
+        <div id="events" class="events">
+        </div>
+    </div>
+
+</body>
+
+<script type="module">
+    import { start } from './scoreboard.js';
+    start();
+</script>
+
+</html>

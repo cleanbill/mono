@@ -1,0 +1,117 @@
+@font-face {
+    font-family: "chalkFont";
+    src: url("Sandbox_Melodrama.ttf");
+}
+
+body {
+    background-color: black;
+}
+
+.crossout {
+    text-decoration: line-through;
+}
+
+.red {
+    color: red;
+}
+
+.history {
+    display: grid;
+    grid-template-columns: 2fr 9fr;
+    grid-gap: 10px;
+    font-size: 19px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 50px;
+    color: whitesmoke;
+    text-align: left;
+    padding-left: 2%;
+}
+
+
+.scoreline {
+    display: grid;
+    grid-template-columns: 16% 84%;
+    font-size: 21px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 28px;
+    color: whitesmoke;
+    text-align: left;
+    padding-left: 25%;
+}
+
+.title{
+    font-size: 110px;
+    line-height: 13px;
+    text-align: center;
+    color: burlywood;
+}
+
+.state{
+    font-size: 12px;
+    line-height: 13px;
+    text-align: center;
+    color: burlywood;
+    padding-top: 40px;
+}
+
+.time {
+    display: grid;
+    grid-template-columns: 10fr 1fr 10fr;
+}
+
+#secs {
+    text-align: left;
+}
+
+#mins {
+    text-align: right;
+}
+
+.small{
+    font-size: 50px;
+    font-family: system-ui;
+}
+
+.alert{
+    font-size: 100px;
+    line-height: 13px;
+    text-align: center;
+    color: red;
+}
+
+.chalk{
+    font-size: 85px;
+    /**font-family: "chalkFont"; **/
+    line-height: 13px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+
+.list {
+    color: blue;
+    text-align: left;
+    font-size: 60px;
+}
+
+.goal {
+    color: red;
+    font-weight: bold;
+    text-align: left;
+    font-size: 60px;
+}
+
+.score {
+    text-align: center;
+}
+
+.vrs {
+    font-size: 10px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    border: chocolate;
+    border-width: 10px;
+}

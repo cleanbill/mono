@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="tutorial-setup-4.css" />
+  <title>Footswell</title>
+  <div showhide="connected" class="hide watercontrol" id="watercourse">
+    <input type="text" id="u" name="u" placeholder="Username">
+    <input type="password" id="p" name="password" placeholder="password">
+    <button click="login" class="login">Log in</button>
+  </div>
+</head>
+
+<body class="fade-in">
+  <main>
+    <header>
+      <h1>F O O T S W E L L</h1>
+    </header>
+    <section>
+      <article id="components">
+
+        <button class="place action" toggle="HOME,AWAY" id="place-toggle" name="place">HOME</button>
+
+        <team-names id="teamNames" mode="edit"></team-names>
+
+        <nav class="nav">
+          <button class="action edit" click="toggleEdit">Edit</button>
+          <button click="publish" class="action">Publish</button>
+          <button click="kickoff" class="action">Kick Off</button>
+        </nav>
+
+        <formation-edit mode="edit"></formation-edit>
+
+        <events-list></events-list>
+
+
+    </section>
+  </main>
+</body>
+<script type="module" src="./tutorial-setup-4.js"></script>
+<script type="module">
+  import { go } from "./dist/binder.js";
+  go();
+
+  import { reset } from "./tutorial-setup-4.js";
+  reset();
+</script>
+
+</html>

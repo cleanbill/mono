@@ -1,0 +1,151 @@
+h1 {
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+
+h2 {
+  background-color: green;
+  color: white;
+}
+
+button {
+  margin: 5px;
+  min-height: 100px;
+  max-width: 90%;
+  font-size: 32px;
+  border-radius: 25px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+body {
+  background-color: #78c278;
+}
+
+input {
+  background-color: #f1e78c;
+  font-size: 42px;
+  min-width: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.watercontrol {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10%;
+}
+
+.login {
+  max-height: 10px;
+  margin: 44px;
+}
+
+.whistle-button {
+  margin: 0px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.event-button {
+  min-height: 100px;
+}
+
+.crossout {
+  text-decoration: line-through;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 9fr 1fr;
+}
+
+.event-text {
+  font-size: 30px;
+  align-self: center;
+}
+
+.action {
+  min-height: 80px;
+  font-size: 32px;
+}
+
+.vrs {
+  padding-top: 50px;
+}
+
+.teamName {
+  padding-top: 27px;
+  padding-bottom: 27px;
+  font-size: 55px;
+}
+
+.edit {
+  background-color: green;
+  color: white;
+}
+
+.swap-data-selected {
+  background-color: green;1111111111111111111111111111111
+}
+
+.format-grid {
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+}
+
+.row-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 5px;
+  margin: 10px;
+}
+
+.center-grid {
+  display: grid;
+  grid-template-columns: 5fr 2fr 5fr;
+  text-align: center;
+  font-size: 30px;
+  width: 100%;
+}
+
+.place {
+  width: 50%;
+  height: 42px;
+  margin-left: 25%;
+  font-size: 30px;
+}
+
+.final {
+  height: 42px;
+  font-size: 30px;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.nav2 {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.nav4 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}

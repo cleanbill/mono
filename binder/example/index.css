@@ -1,0 +1,429 @@
+body {
+  background-color: lightgoldenrodyellow;
+}
+
+.codegrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: burlywood;
+  align-items: center;
+  width: 100%;
+}
+
+.flexing {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: burlywood;
+  align-items: center;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.sketch {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.repeatgrid {
+  display: grid;
+  grid-template-rows: auto auto;
+  background-color: burlywood;
+  align-items: center;
+  width: 100%;
+  border-radius: 25px;
+}
+
+pre {
+  font-size: 12px;
+  border-radius: 25px;
+  color: #40fc48;
+  background-color: #2a231d;
+  box-shadow: 3px 3px darkgrey;
+}
+
+.drawing {
+  color: #656668;
+  background-color: #fffdfc;
+}
+
+h3 {
+  font-size: 21px;
+  font-weight: normal;
+  padding-left: 2px;
+}
+
+.repeat {
+  background-color: burlywood;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+footer {
+  position: absolute;
+  width: 85%;
+  text-align: right;
+  height: 2.5rem; /* Footer height */
+}
+
+.right {
+  margin-left: 64%;
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.bolder {
+  font-weight: bold;
+}
+
+.data {
+  display: grid;
+  grid-template-columns: 0.5fr 5fr 4fr 5fr 5fr 5fr;
+  grid-gap: 3px;
+}
+
+.data .scroller {
+  height: 1200px;
+}
+
+.mid-text {
+  font-size: 21px;
+  text-align: center;
+}
+
+.left-text {
+  font-size: 21px;
+  text-align: left;
+  padding: 30px;
+}
+
+input {
+  background-color: #dfcdb6;
+  font-size: 20px;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+input:focus {
+  outline: none;
+  background-color: #72f777;
+}
+
+.big-text {
+  font-size: 70px;
+  text-align: center;
+}
+
+h1 {
+  background-color: burlywood;
+  border-radius: 25px;
+  text-align: center;
+  padding: 10px;
+}
+
+button {
+  border-color: #ad7575;
+  background-color: #d4913a;
+  min-width: 200px;
+  color: #f8efef;
+  margin: 10px;
+  font-size: 20px;
+  border-radius: 25px;
+}
+
+button:focus {
+  outline: none;
+}
+
+.swap-data-selected {
+  background-color: red;
+}
+
+.swap-element-selected {
+  background-color: red;
+}
+
+.peek {
+  color: red;
+  font-size: 50px;
+}
+
+.code {
+  color: #40fc48;
+  background-color: #2a231d;
+  margin: 37px;
+  padding: 25px;
+  border-radius: 25px;
+  font-size: 12px;
+  min-width: 60%;
+}
+
+.install {
+  color: #40fc48;
+  background-color: #2a231d;
+  font-size: 25px;
+  padding: 20px;
+  border-radius: 25px;
+  margin: 30px;
+}
+
+.copygrid {
+  display: grid;
+  grid-template-columns: 11fr 1fr;
+  align-items: center;
+}
+
+nav {
+  text-align: center;
+}
+
+.copy {
+  font-size: 20px;
+  min-width: 40px;
+  max-height: 40px;
+}
+
+a:link {
+  color: #8d1212;
+  text-decoration: none;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+a:active {
+  color: blue;
+}
+
+.right-text {
+  text-align: right;
+}
+
+@media (min-width: 100px) {
+  .code {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 600px) {
+  .install {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .install {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1450px) {
+  .code {
+    font-size: 20px;
+  }
+  .install {
+    font-size: 21px;
+  }
+}
+
+body {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.full {
+  min-width: 80%;
+  max-width: 80%;
+  margin-left: 10%;
+  min-height: 39px;
+}
+
+.peekgrid {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+}
+
+.fadey {
+  opacity: 0.7;
+  border: 0;
+}
+
+.swap {
+  min-width: 100px;
+  min-height: 39px;
+  max-width: 200px;
+}
+
+.swapgrid {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+  align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.top-container {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+.header {
+  font-weight: bold;
+}
+
+.table-content {
+  padding: 16px;
+  height: 100%;
+  max-height: 600px;
+  overflow-y: scroll;
+  scrollbar-color: white;
+}
+
+.padbot {
+  margin-bottom: 10px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.fade-in {
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 5s;
+  -webkit-animation: fadeOut ease 5s;
+  -moz-animation: fadeOut ease 5s;
+  -o-animation: fadeOut ease 5s;
+  -ms-animation: fadeOut ease 5s;
+  opacity: 0;
+}
+
+.message {
+  text-align: center;
+  color: red;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* The style below is just for the appearance of the example div */
+
+.style {
+  width: 90vw;
+  height: 90vh;
+  text-align: center;
+  margin-left: 5vw;
+  background-color: #000;
+}
+.style p {
+  color: #fff;
+  font-size: 50px;
+}

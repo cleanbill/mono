@@ -1,0 +1,49 @@
+{
+  "name": "binder",
+  "version": "1.0.0",
+  "description": "A tiny library for binding data on a web page and storing locally",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "watch": "jest --watch",
+    "start": "touch dist/what && rm -r dist/* && tsc -p . && cp -r src ./example/. && live-server ./example/.",
+    "build": "touch dist/what && rm -r dist/* && tsc -p . && cp -r src ./example/. && ./make.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bangbangsoftware/binder.git"
+  },
+  "keywords": [
+    "js",
+    "data-binding",
+    "tiny",
+    "fast"
+  ],
+  "author": "Mick Carter",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/bangbangsoftware/binder/issues"
+  },
+  "homepage": "https://github.com/bangbangsoftware/binder#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.8.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/types": "^7.8.3",
+    "@types/jest": "^24.0.9",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^23.6.0",
+    "cssnano": "^4.1.10",
+    "jest": "^23.6.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.7.5",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "minimist": ">=1.2.3",
+    "acorn": ">=5.7.4",
+    "kind-of": ">=6.0.3"
+  }
+}
